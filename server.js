@@ -8,9 +8,12 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 //use static files
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/css', express.static(__dirname + '/css'));
+app.use('/img', express.static(__dirname + '/img'));
+app.use('/js', express.static(__dirname + '/js'));
 //express routes
 app.get('/', function(req, res){
-  res.sendFile(path.join(__dirname, 'views/app.html'));
+  res.sendFile(path.join(__dirname, 'app.html'));
 });
 app.get('/about', function(req, res){
   res.sendFile(path.join(__dirname, 'views/about.html'));
